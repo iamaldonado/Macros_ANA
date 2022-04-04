@@ -9,8 +9,8 @@ In this repository you will find some macros to perform analysis within [mpdroot
 
 ### Create a simple Task
 
- * For mpddst files
- * For minidst files
+ * [For mpddst files](https://github.com/iamaldonado/Macros_ANA/tree/main/mpddstm)
+ * [For minidst files](https://github.com/iamaldonado/Macros_ANA/tree/main/minidstm)
 
 
 ## Available Analysis Macros
