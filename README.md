@@ -23,7 +23,7 @@ The available outputs are:
 
 ### Create a simple Task
 
- * [For mpddst files](.mpddstm)
+ * [For mpddst files](mpddstm)
  * [For minidst files](minidstm)
 
 
