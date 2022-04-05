@@ -47,5 +47,5 @@ out.Write();
 out.Close();
 ```
 
-			| [previous](../../README.md) | [next](../minidst/README.md) |
+|[previous](../../README.md) | [next](../minidst/README.md)|
 
