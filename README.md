@@ -18,13 +18,13 @@ The available outputs are:
 
 ### Start with a Simple macro to Read Files
 
- * [Read mpdst files](https://github.com/iamaldonado/Macros_ANA/tree/main/simpleRead/mpddst)
- * [Read minidst files](https://github.com/iamaldonado/Macros_ANA/tree/main/simpleRead/minidst)
+ * [Read mpdst files](simpleRead/mpddst)
+ * [Read minidst files](simpleRead/minidst)
 
 ### Create a simple Task
 
- * [For mpddst files](https://github.com/iamaldonado/Macros_ANA/tree/main/mpddstm)
- * [For minidst files](https://github.com/iamaldonado/Macros_ANA/tree/main/minidstm)
+ * [For mpddst files](mpddstm)
+ * [For minidst files](minidstm)
 
 
 ## Links
