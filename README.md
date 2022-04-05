@@ -9,15 +9,17 @@ In this repository you will find some macros to perform analysis within [mpdroot
 
 After run macros runMC.C and runReco.C from [mpdroot](https://git.jinr.ru/nica/mpdroot/-/tree/dev/macros/common) framework we can get two types of files: mpddst.root and mpddst.MiniDst.root which contains the required information of reconstructed particles to do analysis. In the following sections we will describe the basics of this, the macros available and explanations of how to use them.
 
-### Structure of mpddst files
+### Available outputs 
 
-The mpdsim Tree contains the different branches: EventHeader, TpcKalmanTrack, Vertex, FfdHit, TOFHit, TOFMatching, ZdcDigi, MCEventHeader, MCTrack, MPDEvent.
+ * <bf mpddst files >. The mpdsim Tree contains the different branches: EventHeader, TpcKalmanTrack, Vertex, FfdHit, TOFHit, TOFMatching, ZdcDigi, MCEventHeader, MCTrack, MPDEvent.
 
 
-### Structure of minidst files 
+ * <bf minidst files >. The MiniDst Tree contains the different branches: Event, Track, BTofHit, BTofPidTraits, BECalCluster, TrackCovMatrix, FHCalHit, McEvent, McTrack. 
 
-The MiniDst Tree contains the different branches: Event, Track, BTofHit, BTofPidTraits, BECalCluster, TrackCovMatrix, FHCalHit, McEvent, McTrack. 
+### Simple macro to Read Files
 
+ * Read mpdst files
+ * Read minidst files
 
 ### Create a simple Task
 
