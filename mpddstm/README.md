@@ -2,7 +2,9 @@
 
 The code used in mpdroot is written in form of C++ *classes*. Each class is stored in its own header (*.h*) and implementation file (*.cxx*). To read mpddst files we can write our own class which is derived from **FairTask**.
 
-The example class **MpdPtTask** shown here, read mpddst.root files and gives the transverse momemtum distribution of reconstructed tracks and generated tracks. Because is derived from FairTask, it shares the common base methods
+The example class **MpdPtTask** shown here, read mpddst.root files and gives the transverse momentum distribution of reconstructed tracks and generated tracks. Because is derived from FairTask, it shares the common base methods, defined in the header file
+
+## Functions in the Header file .h
 
 - **Constructors and Destructors**: Are  standard C++ features, called each time an Instance of the class is created or deleted.
 
@@ -26,6 +28,8 @@ void MpdPtTask::Exec(Option_t *option) // event loop function
 ```
 void MpdPtTask::Finish(); // To store the files
 ```
+
+## Functions in the implementation files .cxx
 
 
 | [:arrow_left: previous](../simpleRead/minidst/README.md)| [main:arrow_up:](../README.md) | [next :arrow_right:](../minidstm/README.md) |
