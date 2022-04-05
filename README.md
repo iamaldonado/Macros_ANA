@@ -9,17 +9,17 @@ In this repository you will find some macros to perform analysis within [mpdroot
 
 After run macros runMC.C and runReco.C from [mpdroot](https://git.jinr.ru/nica/mpdroot/-/tree/dev/macros/common) framework we can get two types of files: mpddst.root and mpddst.MiniDst.root which contains the required information of reconstructed particles to do analysis. In the following sections we will describe the basics of this, the macros available and explanations of how to use them.
 
-### Available outputs 
+The available outputs are: 
 
- * <bf mpddst files >. The mpdsim Tree contains the different branches: EventHeader, TpcKalmanTrack, Vertex, FfdHit, TOFHit, TOFMatching, ZdcDigi, MCEventHeader, MCTrack, MPDEvent.
+ * **mpddst files**. The mpdsim Tree contains the different branches: EventHeader, TpcKalmanTrack, Vertex, FfdHit, TOFHit, TOFMatching, ZdcDigi, MCEventHeader, MCTrack, MPDEvent.
 
 
- * <bf minidst files >. The MiniDst Tree contains the different branches: Event, Track, BTofHit, BTofPidTraits, BECalCluster, TrackCovMatrix, FHCalHit, McEvent, McTrack. 
+ * **minidst files**. The MiniDst Tree contains the different branches: Event, Track, BTofHit, BTofPidTraits, BECalCluster, TrackCovMatrix, FHCalHit, McEvent, McTrack. 
 
-### Simple macro to Read Files
+### Start with a Simple macro to Read Files
 
- * Read mpdst files
- * Read minidst files
+ * [Read mpdst files](https://github.com/iamaldonado/Macros_ANA/tree/main/simpleRead/mpddst)
+ * [Read minidst files](https://github.com/iamaldonado/Macros_ANA/tree/main/simpleRead/minidst)
 
 ### Create a simple Task
 
