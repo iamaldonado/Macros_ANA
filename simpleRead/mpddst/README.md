@@ -47,5 +47,7 @@ out.Write();
 out.Close();
 ```
 
-|[previous](../../README.md) | [next](../minidst/README.md)|
+| :arrow_left:[previous](../../README.md) | :arrow_right:[next](../minidst/README.md) |
+
+
 
