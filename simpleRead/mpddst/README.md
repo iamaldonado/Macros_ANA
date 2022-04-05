@@ -12,7 +12,7 @@ It is possible to run it in different ways:
 ```
 root readDST.C'("mpddst.root")'
 ```
-2. or:
+2. or from the command line interface:
 ```
 root -l
 root [0] .L readDST.C
