@@ -6,6 +6,7 @@ The example class **MpdPtTask** shown here, read mpddst.root files and gives the
 
 ## Functions in the Header file .h
 
+
 - **Constructors and Destructors**: Are  standard C++ features, called each time an Instance of the class is created or deleted.
 
 ```
@@ -30,6 +31,44 @@ void MpdPtTask::Finish(); // To store the files
 ```
 
 ## Functions in the implementation files .cxx
+
+-  **Init Status MpdPtTask::Init()**:
+   - This function call the branches in the tree stored in the mpddst file, implementing the FairRootManager. In this example we call the generated tracks and the reconstructed events. 
+
+```
+FairRootManager *manager = FairRootManager::Instance();
+fMCTracks = (TClonesArray *) manager->GetObject(”MCTrack”);
+fDstEvent = (MpdEvent *) manager->GetObject(”MPDEvent.”);
+Register();
+
+```
+   - The output objects like histograms, also are defined here
+
+```
+fhistPt = new TH1F(”fhistPt”,”p_T distribution; p_T(GeV/c); 1/N_evdN/dp_T”,400,0,10);
+fhistPtMC = new TH1F(”fhistPtMC”,”MC p_T distribution; p_T(GeV/c);
+1/N_evdN/dp_T”,400,0,10);
+```
+
+- **MpdPtTask::Exec(Option_t option)**:
+  - This FUnction describes the event loop, fill the array mpdTracks with the global tracks stored in the event (fDstEvent) called in the Init function.
+
+```
+TClonesArray *mpdTracks = fDstEvent->GetGlobalTracks(); 
+Int_t nTracks = mpdTracks->GetEntriesFast();
+for (Int_t i = 0; i < nTracks; i++){
+MpdTrack *track = (MpdTrack *) mpdTracks->UncheckedAt(i);
+fhistpt->Fill(track->GetPt());
+}
+```
+
+- **MpdPtTask::Finish()**
+  - In this part we store the output objects in the output file.
+
+```
+fhistPt->Write(””);
+fhistPtMC->Write(””);
+```  
 
 
 | [:arrow_left: previous](../simpleRead/minidst/README.md)| [main:arrow_up:](../README.md) | [next :arrow_right:](../minidstm/README.md) |
