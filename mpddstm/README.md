@@ -9,24 +9,24 @@ The example class **MpdPtTask** shown here, read mpddst.root files and gives the
 
 - **Constructors and Destructors**: Are  standard C++ features, called each time an Instance of the class is created or deleted.
 
-```
+```ruby
 MpdPtTask::MpdPtTask() // default constructor
 MpdPtTask::MpdPtTask(const char *name, const char *title) // constructor with names
 MpdPtTask::∼MpdPtTask() // destructor
 ```
 - **Initialization of objects**: In this function we can define the output objects of the analysis, like histograms and trees. In this case the histograms of transverse momentum distribution.
 
-```
+```ruby
 InitStatus MpdPtTask::Init() // objects to fill (trees, histograms, profiles, etc.)
 ```
 - **Execution and process of analysis**: This function is called for each event. This function is the event loop. 
 
-```
+```ruby
 void MpdPtTask::Exec(Option_t *option) // event loop function
 ```
 - **Finish()**: Called at the end of analysis. In this example to store the histograms
 
-```
+```ruby
 void MpdPtTask::Finish(); // To store the files
 ```
 
@@ -44,7 +44,7 @@ Register();
 ```
    - The output objects like histograms, also are defined here, in this case a TH1F histograms for the transverse Momentum distribution in generated and reconstructed tracks.
 
-```
+```ruby
 fhistPt = new TH1F(”fhistPt”,”p_T distribution; p_T(GeV/c); 1/N_evdN/dp_T”,400,0,10);
 fhistPtMC = new TH1F(”fhistPtMC”,”MC p_T distribution; p_T(GeV/c);1/N_evdN/dp_T”,400,0,10);
 ```
@@ -52,7 +52,7 @@ fhistPtMC = new TH1F(”fhistPtMC”,”MC p_T distribution; p_T(GeV/c);1/N_evdN
 - **MpdPtTask::Exec(Option_t option)**:
   - This FUnction describes the event loop, fill the array mpdTracks with the global tracks stored in the event (fDstEvent) called in the Init function. Get the number of tracks that is going to be used for the loop; in which assign each element like an MpdTrack, to obtain the different variables, in this case transverse momentum. In the case of generated tracks is similar. 
 
-```
+```ruby
 TClonesArray *mpdTracks = fDstEvent->GetGlobalTracks(); 
 Int_t nTracks = mpdTracks->GetEntriesFast();
 for (Int_t i = 0; i < nTracks; i++){
@@ -64,7 +64,7 @@ fhistpt->Fill(track->GetPt());
 - **MpdPtTask::Finish()**
   - In this part we store the output objects in the output file.
 
-```
+```ruby
 fhistPt->Write(””);
 fhistPtMC->Write(””);
 ```  
