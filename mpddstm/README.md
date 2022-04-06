@@ -35,7 +35,7 @@ void MpdPtTask::Finish(); // To store the files
 -  **Init Status MpdPtTask::Init()**:
    - This function call the branches in the tree stored in the mpddst file, implementing the FairRootManager. In this example we call the generated tracks (*MCTrack*) and the reconstructed events (*MPDEvent.*). 
 
-```
+```ruby
 FairRootManager *manager = FairRootManager::Instance();
 fMCTracks = (TClonesArray *) manager->GetObject(”MCTrack”);
 fDstEvent = (MpdEvent *) manager->GetObject(”MPDEvent.”);
