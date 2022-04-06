@@ -33,7 +33,7 @@ void MpdPtTask::Finish(); // To store the files
 ## Functions in the implementation files .cxx
 
 -  **Init Status MpdPtTask::Init()**:
-   - This function call the branches in the tree stored in the mpddst file, implementing the FairRootManager. In this example we call the generated tracks and the reconstructed events. 
+   - This function call the branches in the tree stored in the mpddst file, implementing the FairRootManager. In this example we call the generated tracks (*MCTrack*) and the reconstructed events (*MPDEvent.*). 
 
 ```
 FairRootManager *manager = FairRootManager::Instance();
@@ -42,16 +42,15 @@ fDstEvent = (MpdEvent *) manager->GetObject(”MPDEvent.”);
 Register();
 
 ```
-   - The output objects like histograms, also are defined here
+   - The output objects like histograms, also are defined here, in this case a TH1F histograms for the transverse Momentum distribution in generated and reconstructed tracks.
 
 ```
 fhistPt = new TH1F(”fhistPt”,”p_T distribution; p_T(GeV/c); 1/N_evdN/dp_T”,400,0,10);
-fhistPtMC = new TH1F(”fhistPtMC”,”MC p_T distribution; p_T(GeV/c);
-1/N_evdN/dp_T”,400,0,10);
+fhistPtMC = new TH1F(”fhistPtMC”,”MC p_T distribution; p_T(GeV/c);1/N_evdN/dp_T”,400,0,10);
 ```
 
 - **MpdPtTask::Exec(Option_t option)**:
-  - This FUnction describes the event loop, fill the array mpdTracks with the global tracks stored in the event (fDstEvent) called in the Init function.
+  - This FUnction describes the event loop, fill the array mpdTracks with the global tracks stored in the event (fDstEvent) called in the Init function. Get the number of tracks that is going to be used for the loop; in which assign each element like an MpdTrack, to obtain the different variables, in this case transverse momentum. In the case of generated tracks is similar. 
 
 ```
 TClonesArray *mpdTracks = fDstEvent->GetGlobalTracks(); 
