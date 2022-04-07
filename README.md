@@ -47,6 +47,7 @@ This will allows you to implement your task and add several analysis task at the
 |Macros for physical analysis|[mpd](https://git.jinr.ru/nica/mpdroot/-/tree/dev/macro/physical_analysis)|
 |Centrality determination| [CentralityFramework](https://github.com/FlowNICA/CentralityFramework)|
 |ECAL Tutorial|[ECAL new Geometry](examples)|
+|Event Plane with ZDC| ---|
 |Directed and elliptic Flow|[Flow](https://git.jinr.ru/nica/mpdroot/-/tree/dev/macro/physical_analysis/Flow)|
 |------|------|
 
