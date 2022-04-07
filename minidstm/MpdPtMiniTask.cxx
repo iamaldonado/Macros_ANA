@@ -19,18 +19,14 @@ using std::endl;
 // -----   Default constructor ---------------------------------------
 MpdPtMiniTask::MpdPtMiniTask():
   FairTask(),
-  fEventCounter(0)//,
-//  fHistPt(nullptr),
-//  fHistPtMC(nullptr)
+  fEventCounter(0)
 {
 }
 
 // -----   constructor with names ------------------------------------
 MpdPtMiniTask::MpdPtMiniTask(const char *name, const char *title):
   FairTask(name),
-  fEventCounter(0)//,
-//  fHistPt(nullptr),
-//  fHistPtMC(nullptr)
+  fEventCounter(0)
 {
 }
 
@@ -44,24 +40,6 @@ InitStatus MpdPtMiniTask::Init()
   cout<<"\n-I- [MpdPtMiniTask::Init] " <<endl;  
   
   FairRootManager *manager = FairRootManager::Instance();
-/*
-  MpdMiniDstReader* miniDstReader = new MpdMiniDstReader(inFileName);
-  miniDstReader->Init();
-
- miniDstReader->SetStatus("*",0);
- miniDstReader->SetStatus("Event*",1);
- miniDstReader->SetStatus("Track*",1);
- miniDstReader->SetStatus("McEvent*",1);
- miniDstReader->SetStatus("McTrack*",1);
-*/
-/* MpdMiniDst *dst = miniDstReader->miniDst();
-
-  fMCTracks = new TClonesArray("MpdMiniMcTrack");
-  fDstEvent = new TClonesArray("MpdMiniTrack");
-
- miniDstReader->SetBranchAddress("Track",&fDstEvent);
- miniDstReader->SetBranchAddress("McTrack",&fMCTracks);
-*/
   fMCTracks = (TClonesArray *) manager->GetObject("McTrack");
   if(fMCTracks == nullptr) return kFATAL;
   fDstEvent = (TClonesArray *) manager->GetObject("Track");
@@ -71,9 +49,7 @@ InitStatus MpdPtMiniTask::Init()
   Register();
   
   fhistPt = new TH1F("fhistPt","p_{T} distribution; p_{T}(GeV/c); 1/N_{ev} dN/dp_{T}",400,0,10);
-//  fhistPt->GetXaxis()->SetTitle("p_{T}(GeV/c)");
   fhistPtMC = new TH1F("fhistPtMC","MC p_{T} distribution; p_{T}(GeV/c); 1/N_{ev} dN/dp_{T}",400,0,10);
-//  fhistPtMC->GetXaxis()->SetTitle("p_{T}(GeV/c)");
   fhistPtMC->SetLineColor(kRed);
 
 
@@ -88,16 +64,10 @@ void MpdPtMiniTask::Exec(Option_t * option)
   fEventCounter++;
   cout<<"-I- [MpdPtMiniTask::Exec] " << "{" << fEventCounter << "}" <<endl;
     
-  //MpdEvent *mpdEvent = fDstEvent; // one event by one event
-  //event->Dump(); 
-//  TClonesArray *mpdTracks = fDstEvent->GetGlobalTracks();
-//  Int_t nTracks = mpdTracks->GetEntriesFast();
   Int_t nTracks = fDstEvent->GetEntriesFast();  
   
   cout << "N of Reconstructed tracks = " << nTracks << endl;
     
-  //mpdTracks->Dump();
-  
   /* 
    * Get pT distribution
    */
@@ -111,7 +81,6 @@ void MpdPtMiniTask::Exec(Option_t * option)
   for (Int_t i = 0; i < nTracks; i++)
   {
 	MpdMiniTrack *track = (MpdMiniTrack *) fDstEvent->UncheckedAt(i);
-	//if ( !track->GetTofFlag() ) continue;  // no tof identification
 
         TVector3 gptotal = track->gMom();
         TVector3 gdcaor = track->origin();
@@ -128,7 +97,6 @@ void MpdPtMiniTask::Exec(Option_t * option)
 
       Bool_t isprimarytrack     = track->isPrimary(); 
       if (isprimarytrack != 1) continue;
-      //if (TMath::Sqrt(TMath::Power(gdcaor.X(),2) + TMath::Power(gdcaor.Y(),2) + TMath::Power(gdcaor.Z(),2)) > dca_cut) continue;
     
       fhistPt->Fill(TMath::Abs(pt));
   }
