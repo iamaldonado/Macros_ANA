@@ -1,6 +1,6 @@
 # Analysis Task for minidst files
 
-The content of the class [**MpdPtMiniTask**](MpdPtMiniTask.h) also is derived from FairTask, and its structure is similar to the class to read mpddst files. The differences appear on the implementation file, in the functions:
+The content of the class [**MpdPtMiniTask**](MpdPtMiniTask.h) also is derived from FairTask, and its structure is similar to the class to read mpddst files. The differences appear on the [implementation file](MpdPtMiniTask.cxx), in the functions:
 
 - **InitStatus MpdPtMiniTask::Init()**: In the name of the branches for generated and reconstructed tracks
 
@@ -20,7 +20,7 @@ Also the methods need to be changed in agreement with the definition in the assi
 
 > Double_t pt = track->GetPt();
 
-changes to
+change to
 
 > Double_t pt = track->gPt();
 
@@ -34,5 +34,7 @@ for the minidst files. In a similar way for the generated tracks
 
 # Additional Class to read minidst files
 
-| [:arrow_left: previous](../mpddstm/README.md)| [main:arrow_up:](../README.md) | [next :arrow_right:](../README.md) |
+To read the tree in the minidst file, we need in our mpdroot version, the class [MpdMiniDstSource](MpdMiniDstSource.h). In case that it does not appear, we can copy the class in the same folder in which we have the class to read the minidst files.
+
+| [:arrow_left: previous](../mpddstm/README.md)| [main:arrow_up:](../README.md) | [next :arrow_right:](../mpddstm/dictionary.md) |
 

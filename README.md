@@ -18,13 +18,25 @@ The available outputs are:
 
 ### Start with a Simple macro to Read Files
 
+This kind of macros can be used with both, the user and developer installationof mpdroot.
+
  * [Read mpdst files](simpleRead/mpddst)
  * [Read minidst files](simpleRead/minidst)
 
 ### Create a simple Task
 
+To implement this tasks, we need the mpdroot developer version, to add the clases and compile it.
+
  * [For mpddst files](mpddstm)
  * [For minidst files](minidstm)
+
+### Compile mpdroot with your analysis class
+
+We need to create a folder in mpdroot with our class and the [CMakeList.txt and LinkDef.h](mpddstm/dictionary.md) files to tell which classes should be added to the dictionary.
+
+### Macro to run the analysis with your class
+
+This will allows you to implement your task and add several analysis task at the same time. The structure differs for [mpddst files](mpddstm/runmacro.md) with respect to [minidst files](minidstm/runmacro.md)
 
 
 ## Links
