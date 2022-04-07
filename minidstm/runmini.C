@@ -1,14 +1,10 @@
-# Macro for run analysis with mpddst files
-
-This macro **runanalysis.C** call the FairRunAna class and its structure is similar to runReco.C macro:
-
-```ruby
 #if !defined(__CINT__) && !defined(__CLING__)
 // ROOT includes
 #include "TString.h"
 #include "TStopwatch.h"
 #include "TSystem.h"
 #include "TChain.h"
+//
 // Fair includes
 #include "FairRunAna.h"
 #include "FairFileSource.h"
@@ -17,25 +13,27 @@ This macro **runanalysis.C** call the FairRunAna class and its structure is simi
 #include "FairTask.h"
 #include "FairField.h"
 //
-#include "MpdPtTask.h"
+#include "MpdPtMiniTask.h"
+#include "MpdRoInvMassTask.h"
 
 #include <iostream>
 using namespace std;
 #endif
 
-#include "commonFunctions.C"
+#include "../mpd/macros/common/commonFunctions.C"
 
-void runanalysis(TString inFile = "mpddst.root", TString outFile = "output.root", Int_t nStartEvent =0, Int_t nEvents =500){
+void runmini(TString inFile = "MiniDst.root", TString outFile = "outmini.root", Int_t nStartEvent =0, Int_t nEvents =500){
 
 // -----   Timer   --------------------------------------------------------
      TStopwatch timer;
         timer.Start();
 
+
 FairRunAna* fRun;
 if (!CheckFileExist(inFile)) return;
         fRun = new FairRunAna();
 
-    FairSource* fFileSource = new FairFileSource(inFile);
+    MpdMiniDstSource* fFileSource = new MpdMiniDstSource(inFile);
     fRun->SetSource(fFileSource);
     fRun->SetOutputFile(outFile); // [WARN] FairRun::SetOutputFile() deprecated. Use FairRootFileSink.
     fRun->SetGenerateRunInfo(false);
@@ -43,7 +41,7 @@ if (!CheckFileExist(inFile)) return;
 
 TString parFile = inFile;
 
-    FairTask* physics = new MpdPtTask("MpdPhysicstask","task");
+    FairTask* physics = new MpdPtMiniTask("MpdPhysicstask","task");
     fRun->AddTask(physics);
 
   fRun->Init();
@@ -61,8 +59,3 @@ TString parFile = inFile;
          cout << endl;
 
 }
-```
-
-The FairTask allows you to include your analysis task
-
-| [:arrow_left: previous](dictionary.md)| [main:arrow_up:](../README.md) | [next :arrow_right:](../minidstm/runmacro.md) |
