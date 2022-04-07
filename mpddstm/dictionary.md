@@ -1,8 +1,8 @@
 # Compile mpdroot with your class
 
-You have to create a folder in mpdroot, for example in *mpdroot/physics*.
+You have to create a folder in mpdroot, for example in *mpdroot/physics*, and add it to the CMakeList.txt file in physics folder.
 
-That folder should contain the files to tell which classes should be added to the dictionary and your class's files:
+In this example we create the folder anaclass, that folder should contain the files to tell which classes should be added to the dictionary and your class's files:
 
 - CMakeList.txt
 - AnaClassLinkDef.h
@@ -64,15 +64,25 @@ Set(DEPENDENCIES)
 GENERATE_LIBRARY()
 ```
 
-
-
-<span style="color: blue"> **NOTE** </span>
+:red_circle: :warning: :red_circle: **NOTE**: mpdroot is a work in progress, the location of some classes are changing from one version to another, for example *mpdbase* was moved to *core/mpdbase*. Check it in your own version.
 
 
 
 ## LinkDef.h 
 
-jsjs
+This file tells which classes should be added to the dictionary
+
+```ruby
+#ifdef __CINT__
+
+#pragma link off all globals;
+#pragma link off all classes;
+#pragma link off all functions;
+
+#pragma link C++ class MpdPtTask+;
+
+#endif
+```
 
 | [:arrow_left: previous](../minidstm/README.md)| [main:arrow_up:](../README.md) | [next :arrow_right:](runmacro.md) |
 
