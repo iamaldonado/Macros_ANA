@@ -1,4 +1,4 @@
-#Analysis Task for minidst files
+# Analysis Task for minidst files
 
 The content of the class [**MpdPtMiniTask**](MpdPtMiniTask.h) also is derived from FairTask, and its structure is similar to the class to read mpddst files. The differences appear on the implementation file, in the functions:
 
@@ -10,9 +10,29 @@ The content of the class [**MpdPtMiniTask**](MpdPtMiniTask.h) also is derived fr
   fDstEvent = (TClonesArray *) manager->GetObject("Track");
   if(fDstEvent == nullptr) return kFATAL;
 ``` 
--**MpdPtMiniTask::Exec(Option_t * option)**: The function assign the MpdMiniTrack to the reconstructed tracks and the MpdMiniMcTrack to the generated tracks
+-**MpdPtMiniTask::Exec(Option_t * option)**: The function assign the MpdMiniTrack to the reconstructed tracks and the MpdMiniTrack to the generated tracks.  
+```ruby
+MpdMiniTrack *track = (MpdMiniTrack *) fDstEvent->UncheckedAt(i); // reconstructed tracks
 
+MpdMiniMcTrack *MCtrack = (MpdMiniMcTrack*) fMCTracks->UncheckedAt(i); //generated tracks
+```
+Also the methods need to be changed in agreement with the definition in the assigned classes, for example for reconstructed tracks in mpddst files
 
+> Double_t pt = track->GetPt();
+
+changes to
+
+> Double_t pt = track->gPt();
+
+for the minidst files. In a similar way for the generated tracks
+
+> Double_t ptmc=MCtrack->GetPt();
+
+ change to 
+
+> Double_t ptmc=TMath::Sqrt(MCtrack->px()*MCtrack->px() + MCtrack->py()*MCtrack->py());
+
+# Additional Class to read minidst files
 
 | [:arrow_left: previous](../mpddstm/README.md)| [main:arrow_up:](../README.md) | [next :arrow_right:](../README.md) |
 
