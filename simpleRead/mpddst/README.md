@@ -9,11 +9,11 @@ Because the function is defined to read a string:
 It is possible to run it in different ways:
 
 1. In the same command line:
-```
+```ruby
 root readDST.C'("mpddst.root")'
 ```
 2. or from the command line interface:
-```
+```ruby
 root -l
 root [0] .L readDST.C
 root [1] readDST("mpddst.root")
@@ -22,15 +22,15 @@ root [1] readDST("mpddst.root")
 ## Add pt histogram
 
 Define the histogram after timer initialization with the following line:
-```
+```ruby
 TH1F *h1 = new TH1F("h1","p_{T} distribition;p_{T}(GeV/c);Entries",100,0,10);
 ```
 Get the *p_{T}* in the loop over tracks looking for the proper method in [MpdTrack.h](https://git.jinr.ru/nica/mpdroot/-/blob/dev/core/mpdBase/MpdTrack.h)
-```
+```ruby
 h1->Fill(track->GetPt());
 ```
 To draw the histogram add the following line after loop over tracks, before to print the time
-```
+```ruby
 h1->Draw();
 ```
 
@@ -38,11 +38,11 @@ h1->Draw();
 
 Before the definition of the histogram, you can add the following line 
 
-```
+```ruby
 TFile out("salida.root","recreate");
 ```
 and at the end of the function *readDST* write the file and close it
-```
+```ruby
 out.Write();
 out.Close();
 ```
