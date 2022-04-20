@@ -5,7 +5,17 @@
 
 In this repository you will find some macros to perform analysis within [mpdroot](http://mpdroot.jinr.ru) framework for the MPD (Multi-Purpose Detector) experiment at the NICA (Nuclotron-based Ion Collider fAcility) project. 
 
-## Introduction
+You will find working examples in the nica cluster, and several macros availables at mpdroot. 
+
+## Simulation Process 
+
+Before to start the physics analysis we require to simulate data, which requires the event generation, transport through the detector and reconstruction of particles.
+
+ * [Generation](simulation/generation)
+ * [Transport](simulation/transport)
+ * [Reconstruction](simulation/reconstruction)
+
+## Analysis
 
 After run macros runMC.C and runReco.C from [mpdroot](https://git.jinr.ru/nica/mpdroot/-/tree/dev/macros/common) framework we can get two types of files: mpddst.root and mpddst.MiniDst.root which contains the required information of reconstructed particles to do analysis. In the following sections we will describe the basics of this, the macros available and explanations of how to use them.
 
