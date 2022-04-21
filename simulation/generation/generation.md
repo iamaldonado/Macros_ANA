@@ -9,6 +9,8 @@ The first step is to generate high-energy particle physics events, with some Mon
  * LAQGSM - Los Alamos Quark Gluon String Model
  * SMASH - Simulating Many Accelerated Strongly-interacting Hadrons
 
+The classes associated to the supported generators and the skeletons to add a new one are in the folder [simulation/generators](https://git.jinr.ru/nica/mpdroot/-/tree/dev/simulation/generators/mpdGen)
 
-| [:arrow_left: previous](../../README.md)| [main:arrow_up:](../../README.md) | [next :arrow_right:](../transport.md) |
+
+| [:arrow_left: previous](../../README.md)| [main:arrow_up:](../../README.md) | [next :arrow_right:](../transport/transport.md) |
  

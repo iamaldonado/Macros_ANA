@@ -11,8 +11,8 @@ You will find working examples in the nica cluster, and several macros available
 
 Before to start the physics analysis we require to simulate data, which requires the event generation, transport through the detector and reconstruction of particles.
 
- * [Generation](simulation/generation)
- * [Transport](simulation/transport)
+ * [Generation](simulation/generation/generation.md)
+ * [Transport](simulation/transport/)
  * [Reconstruction](simulation/reconstruction)
 
 ## Analysis
