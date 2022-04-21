@@ -29,7 +29,8 @@ To open the file and visualize the content you can do it from the terminal with 
 > TBrowser n
 
 and then browse in the content on the file
-<img src=mpddstcmp.png>
+
+![image](mpddstcmp.png)
 
 
 | [:arrow_left: previous](../transport/transport.md)| [main:arrow_up:](../../README.md) | [next :arrow_right:](../../simpleRead/mpddst/README.md) |
