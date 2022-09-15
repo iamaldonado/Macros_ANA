@@ -1,7 +1,10 @@
+.table-wrapper {
+  overflow-x: scroll;
+}
 # Simple Macro basic_readminiDST.C
 
 This simple macro[basic_readminiDST.C](https://github.com/iamaldonado/Macros_ANA/tree/main/simpleRead/minidst/basic_readminiDST.C),
-can be run for only one file or for several.
+can be run for only one or for several files.
 
 
  1. Run for only one file.
@@ -18,11 +21,12 @@ in which inputFile is the path to the mpddst.MiniDst.root file, Nev is the numbe
 First you need a file name.list with a list of the mpddst.MiniDst.root files, for example:
 
 *filename.list*
-
+<div class="table-wrapper" markdown="block">
 > /eos/nica/mpd/sim/data/MiniDst/dst-BiBi-09.2GeV-mp02-21-500ev/BiBi/09.2GeV-mb/UrQMD/BiBi-09.2GeV-mp02-21-500ev/urqmd-BiBi-09.2GeV-mb-eos0-500-29970.reco.MiniDst.root
 > /eos/nica/mpd/sim/data/MiniDst/dst-BiBi-09.2GeV-mp02-21-500ev/BiBi/09.2GeV-mb/UrQMD/BiBi-09.2GeV-mp02-21-500ev/urqmd-BiBi-09.2GeV-mb-eos0-500-29971.reco.MiniDst.root
 > /eos/nica/mpd/sim/data/MiniDst/dst-BiBi-09.2GeV-mp02-21-500ev/BiBi/09.2GeV-mb/UrQMD/BiBi-09.2GeV-mp02-21-500ev/urqmd-BiBi-09.2GeV-mb-eos0-500-29972.reco.MiniDst.root
 > /eos/nica/mpd/sim/data/MiniDst/dst-BiBi-09.2GeV-mp02-21-500ev/BiBi/09.2GeV-mb/UrQMD/BiBi-09.2GeV-mp02-21-500ev/urqmd-BiBi-09.2GeV-mb-eos0-500-29973.reco.MiniDst.root
+</div>
 
 then is possible to run the analysis with:
 
