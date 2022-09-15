@@ -18,15 +18,11 @@ in which inputFile is the path to the mpddst.MiniDst.root file, Nev is the numbe
 First you need a file name.list with a list of the mpddst.MiniDst.root files, for example:
 
 *filename.list*
-pre {
-  overflow-x: auto;
-}
-
 ```
- /eos/nica/mpd/sim/data/MiniDst/dst-BiBi-09.2GeV-mp02-21-500ev/BiBi/09.2GeV-mb/UrQMD/BiBi-09.2GeV-mp02-21-500ev/urqmd-BiBi-09.2GeV-mb-eos0-500-29970.reco.MiniDst.root
- /eos/nica/mpd/sim/data/MiniDst/dst-BiBi-09.2GeV-mp02-21-500ev/BiBi/09.2GeV-mb/UrQMD/BiBi-09.2GeV-mp02-21-500ev/urqmd-BiBi-09.2GeV-mb-eos0-500-29971.reco.MiniDst.root
- /eos/nica/mpd/sim/data/MiniDst/dst-BiBi-09.2GeV-mp02-21-500ev/BiBi/09.2GeV-mb/UrQMD/BiBi-09.2GeV-mp02-21-500ev/urqmd-BiBi-09.2GeV-mb-eos0-500-29972.reco.MiniDst.root
- /eos/nica/mpd/sim/data/MiniDst/dst-BiBi-09.2GeV-mp02-21-500ev/BiBi/09.2GeV-mb/UrQMD/BiBi-09.2GeV-mp02-21-500ev/urqmd-BiBi-09.2GeV-mb-eos0-500-29973.reco.MiniDst.root
+/eos/nica/mpd/sim/data/MiniDst/dst-BiBi-09.2GeV-mp02-21-500ev/BiBi/09.2GeV-mb/UrQMD/BiBi-09.2GeV-mp02-21-500ev/urqmd-BiBi-09.2GeV-mb-eos0-500-29970.reco.MiniDst.root
+/eos/nica/mpd/sim/data/MiniDst/dst-BiBi-09.2GeV-mp02-21-500ev/BiBi/09.2GeV-mb/UrQMD/BiBi-09.2GeV-mp02-21-500ev/urqmd-BiBi-09.2GeV-mb-eos0-500-29971.reco.MiniDst.root
+/eos/nica/mpd/sim/data/MiniDst/dst-BiBi-09.2GeV-mp02-21-500ev/BiBi/09.2GeV-mb/UrQMD/BiBi-09.2GeV-mp02-21-500ev/urqmd-BiBi-09.2GeV-mb-eos0-500-29972.reco.MiniDst.root
+/eos/nica/mpd/sim/data/MiniDst/dst-BiBi-09.2GeV-mp02-21-500ev/BiBi/09.2GeV-mb/UrQMD/BiBi-09.2GeV-mp02-21-500ev/urqmd-BiBi-09.2GeV-mb-eos0-500-29973.reco.MiniDst.root
 ```
 then is possible to run the analysis with:
 
