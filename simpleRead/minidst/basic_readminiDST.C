@@ -23,35 +23,17 @@ R__ADD_INCLUDE_PATH($VMCWORKDIR)
  TH2D *hetapt = new TH2D("hetapt","hetapt",500,-2.5,2.5,60,0,2);
  TH2D *hetaptc = new TH2D("hetaptc","hetaptc",340,-1.7,1.7,60,0,2);
 
-char name[50];
-const Char_t * Particle[6]={"ch","pi","k","p","Kp","Km"};
+ TH1F *hRefMult = new TH1F("hRefMultSTAR","hRefMultSTAR",2500,0,2500);
+ TH2F *hBvsRefMult = new TH2F("hBvsRefMult","hBvsRefMult",2500,0,2500,200,0.,20.);
+
+ TH1F *hRefMultMC = new TH1F("hRefMultSTARMC","hRefMultSTARMC",2500,0,2500);
+ TH2F *hBvsRefMultMC = new TH2F("hBvsRefMultMC","hBvsRefMultMC",2500,0,2500,200,0.,20.);
 
 //_______________________________________________________________________________________
 void basic_readminiDST(const Char_t* inFileName, int myevents, TString outFileName ) {
   
   // Begin new class to read inFileName
   MpdMiniDstReader* miniDstReader = new MpdMiniDstReader(inFileName);
-
-  TH1F *hRefMult = new TH1F("hRefMultSTAR","hRefMultSTAR",2500,0,2500);
-  TH2F *hBvsRefMult = new TH2F("hBvsRefMult","hBvsRefMult",2500,0,2500,200,0.,20.);
-
-  TH1F *hRefMultMC = new TH1F("hRefMultSTARMC","hRefMultSTARMC",2500,0,2500);
-  TH2F *hBvsRefMultMC = new TH2F("hBvsRefMultMC","hBvsRefMultMC",2500,0,2500,200,0.,20.);
-
-
-  TH1F *hRapidity = new TH1F("hRapidity","hRapidity",200,-10,10);
-  TH1F *hRapidityMC = new TH1F("hRapidityMC","hRapidityMC",200,-10,10);
-
-TH1F *hpt[6]={0,0,0,0,0,0};
-TH1F *hptMC[6]={0,0,0,0,0,0};
-for(Int_t ipart=0;ipart<6;++ipart){
-hpt[ipart]=new TH1F(Form("hpt_%s",Particle[ipart]),Form("%s p_{T} Distribution",Particle[ipart]),100,0,10);
-hptMC[ipart]=new TH1F(Form("hptmc_%s",Particle[ipart]),Form("%s p_{T} MC Distribution",Particle[ipart]),100,0,10);
-}
-
-
-
-
 
 
   TFile *fo = new TFile(outFileName.Data(),"RECREATE");  
